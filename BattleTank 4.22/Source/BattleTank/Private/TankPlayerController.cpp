@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
+#include "Engine/World.h"
 #include "TankPlayerController.h"
 
 void ATankPlayerController::BeginPlay()
@@ -35,7 +36,7 @@ void  ATankPlayerController::AimTowardCrosshair() {
 
     FVector HitLocation; // OutParameter
     if (GetSightRayHitLocation(HitLocation)) {
-       UE_LOG(LogTemp,Warning, TEXT("HitLocation: %s"), *HitLocation.ToString());
+       GetControlledTank()->AimAt(HitLocation);
     }
     // get world location of linetrace through crosshair
 }
