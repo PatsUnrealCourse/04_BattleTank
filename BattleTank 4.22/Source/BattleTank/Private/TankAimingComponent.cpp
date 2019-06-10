@@ -1,9 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
+#include "TankAimingComponent.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
-#include "TankAimingComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Classes/Kismet/GameplayStatics.h"
 #include "TankBarrel.h"
@@ -66,6 +66,6 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	// give max elevationspeed
 	
 	// up down to height
-	Barrel->Elevate(5);
+	Barrel->Elevate(DeltaRotatror.Pitch);
 }
 
