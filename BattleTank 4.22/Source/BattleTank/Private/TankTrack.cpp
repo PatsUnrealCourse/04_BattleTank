@@ -4,9 +4,8 @@
 #include "TankTrack.h"
 #include "Engine/World.h"
 
-void UTankTrack::SetThrottle(float Throttle) {
-	auto Name = GetName();
-	
+void UTankTrack::SetThrottle(float Throttle) 
+{
 	auto ForceApplied = GetForwardVector() * Throttle * TrackMaxDrivingForce;
 	auto ForceLocation = GetComponentLocation();
 	auto TankRoot = Cast<UPrimitiveComponent>(GetOwner()->GetRootComponent());
