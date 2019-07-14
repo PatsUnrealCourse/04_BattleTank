@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+//Copyright Pats Guitar workshop
 
 
 #include "TankMovementComponent.h"
@@ -15,9 +15,12 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 	// no need to call super, were replacing fucntionality
 	auto TankForward = GetOwner()->GetActorForwardVector().GetSafeNormal();
 	auto AIForwardIntention = MoveVelocity.GetSafeNormal();
+
 	auto ForwardThrow = FVector::DotProduct(TankForward, AIForwardIntention);
+	auto RightThrow = FVector::CrossProduct(TankForward, AIForwardIntention).Z;
 
 	IntendMoveForward(ForwardThrow);
+	IntendTurnRight(RightThrow);
 }
 
 void  UTankMovementComponent::IntendMoveForward(float Throw) 
