@@ -15,10 +15,12 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
+protected:
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	ATank* GetControlledTank() const;
+
 private:
 
-	ATank* GetControlledTank() const;
-	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
